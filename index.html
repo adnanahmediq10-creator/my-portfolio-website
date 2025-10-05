@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Adnan Ahmed Mohammed</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            background-color: #000;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-left: 25px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+            min-height: 50vh;
+        }
+
+        /* Home Section */
+        #home {
+            background: linear-gradient(135deg, #000 0%, #003300 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .home-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        #home h1 {
+            font-size: 5.5rem;
+            color: #00ff88;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        #home p {
+            font-size: 1.3rem;
+            color: #bbb;
+            margin-bottom: 40px;
+            text-align: left;
+            max-width: 550px;
+        }
+
+        .profile-image {
+            width: 500px;
+            height: 500px;
+            background: url("profile\ photo.jpg") no-repeat center; 
+            background-size: cover;
+            border-radius: 50%;
+            border: 5px solid #00ff88;
+            box-shadow: 0 0 70px rgba(0, 255, 136, 0.5);
+            flex-shrink: 0;
+        }
+
+        .connect-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #00ff88;
+            color: #000;
+            text-decoration: none;
+            font-size: 1.3rem;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 25px;
+        }
+
+        .connect-button:hover {
+            background-color: #00cc70;
+        }
+
+        /* Content Section */
+        #content, #projects {
+            text-align: center;
+            background-color: #000;
+        }
+
+        #content h2, #projects h2, #contact h2 {
+            font-size: 3.2rem;
+            color: #fff;
+            margin-bottom: 50px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .content-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .content-card, .project-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .content-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 25px rgba(0, 255, 136, 0.3);
+        }
+
+        .content-card .icon, .project-card .icon {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+
+        .content-card h3, .project-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .content-card p, .project-card p {
+            color: #888;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #000;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .contact-icons a {
+            font-size: 2rem;
+            color: #00ff88;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .contact-icons a:hover {
+            color: #00cc70;
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid #333;
+            text-align: center;
+            background-color: #000;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: #888;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #00ff88;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            .home-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #home h1 {
+                font-size: 3.5rem;
+            }
+
+            #home p {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .connect-button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+
+            #content h2, #projects h2, #contact h2 {
+                font-size: 2.2rem;
+            }
+
+            .content-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-card, .project-card {
+                padding: 20px;
+            }
+
+            .content-card .icon, .project-card .icon {
+                font-size: 2.5rem;
+            }
+
+            .content-card h3, .project-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .content-card p, .project-card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="name">Adnan Ahmed Mohammed</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#content">Content</a> 
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="home-content">
+                <div>
+                    <h1>Rising Tech Student</h1>
+                    <p>Exploring the world of coding and technology as a first-year student.</p>
+                    <p>Passionate about learning programming and building a foundation in computer science.</p>
+                    <a href="#" class="connect-button">Let's Connect</a>
+                </div>
+                <div class="profile-image"></div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section id="content" class="section">
+            <h2>My Learning Journey</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="icon">/</div>
+                    <h3>Introduction to Coding</h3>
+                    <p>Learning basics of Java, HTML, and CSS</p>
+                </div>
+                <div class="content-card">
+                    <div class="icon">≣</div>
+                    <h3>Computer Science Basics</h3>
+                    <p>Exploring algorithms and data structures</p>
+                </div>
+                <div class="content-card">
+                    <div class="icon">✎</div>
+                    <h3>Tech Exploration</h3>
+                    <p>Getting started with problem-solving and tools</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p>A personal portfolio to showcase my journey and learning.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Java Programs</h3>
+                    <p>Practice problems in Java to build logic and problem-solving skills.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Mini Web Pages</h3>
+                    <p>Simple static websites built using HTML and CSS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <p style="text-align:center; color:#bbb; font-size:1.2rem; margin-bottom:20px;">
+                Feel free to reach out for collaborations or learning together!
+            </p>
+            <div class="contact-icons">
+                <a href="https://www.instagram.com/adnanahmed5455/" target="_blank" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/adnan-ahmed-mohammed-70a24a379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/adnanahmediq10-creator" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Adnan Ahmed Mohammed. All rights reserved.</p> 
+    </footer>
+</body>
+</html>
